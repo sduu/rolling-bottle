@@ -1106,20 +1106,20 @@ table {
   height: 100%;
 }
 .section-sticky.is-step-0 .deco .deco-item {
-  background-image: url("./../../assets/images/img-main-deco-1.png");
+  background-image: url("./assets/images/img-main-deco-1.png");
 }
 
 .section-sticky.is-step-1 .deco .deco-item {
-  background-image: url("./../../assets/images/img-main-deco-2.png");
+  background-image: url("./assets/images/img-main-deco-2.png");
 }
 
 .section-sticky.is-step-2 .deco .deco-item {
-  background-image: url("./../../assets/images/img-main-deco-3.png");
+  background-image: url("./assets/images/img-main-deco-3.png");
 }
 
 .section-sticky .deco .deco-item {
   position: absolute;
-  background: url("./../../assets/images/img-main-deco-1.png") no-repeat 0 0;
+  background: url("./assets/images/img-main-deco-1.png") no-repeat 0 0;
   background-size: 100% auto;
 }
 .section-sticky .deco .deco-item:nth-child(1) {
