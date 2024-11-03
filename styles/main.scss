@@ -1,12 +1,21 @@
 @charset 'utf-8';
 
-@import url('./utilities/constants');
-@import url('./utilities/mixins');
+@import './utilities/constants';
+@import './utilities/mixins';
 
-@import url('./base/normalize');
-@import url('./base/reset');
-@import url('./base/globals');
+@import './base/normalize';
+@import './base/reset';
+@import './base/globals';
 
-@import url('./layouts/header');
-@import url('./layouts/main');
-@import url('./layouts/footer');
+@import './layouts/header';
+@import './layouts/main';
+@import './layouts/footer';
+
+@import './components/main-section';
+@import './components/section-circle';
+@import './components/section-sticky';
+@import './components/section-card';
+@import './components/section-marquee';
+@import './components/scroll-content';
+@import './components/scene-content';
+@import './components/cursor-content';

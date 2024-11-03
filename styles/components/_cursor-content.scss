@@ -1,0 +1,23 @@
+#cursor-content {
+  @include responsive(T) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $cursor-level;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+
+    @at-root {
+      body,
+      button,
+      a {
+        cursor: none;
+      }
+    }
+
+    svg {
+      height: 100%;
+    }
+  }
+}
