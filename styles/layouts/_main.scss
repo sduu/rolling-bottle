@@ -1,0 +1,152 @@
+.main {
+  &-section-1 {
+    padding-top: vw-sm(50px);
+
+    .title {
+      width: vw-sm(546px);
+    }
+
+    .sub {
+      right: 0;
+      bottom: vw-sm(8px);
+      width: vw-sm(213px);
+    }
+  }
+
+  &-section-2 {
+    .section-circle p {
+      width: vw-sm(220px);
+      text-align: center;
+    }
+  }
+
+  &-section-3 {
+    padding-top: vw-sm(300px);
+
+    .title {
+      width: vw-sm(525px);
+    }
+
+    .sub {
+      top: 0;
+      right: vw-sm(125px);
+      width: vw-sm(95px);
+    }
+  }
+
+  &-section-4 {
+    padding-top: vw-sm(100px);
+    padding-bottom: vw-sm(140px);
+
+    .title {
+      width: vw-sm(660px);
+
+      span {
+        display: inline-block;
+        width: vw-sm(100px);
+      }
+    }
+
+    .section-circle {
+      margin-top: vw-sm(80px);
+
+      p {
+        width: vw-sm(220px);
+      }
+    }
+
+    .section-card {
+      padding: vw-sm(100px) 0 vw-sm(50px);
+    }
+  }
+
+  @include responsive(T) {
+    &-section-1 {
+      padding-top: 21vh;
+
+      .sub {
+        right: auto;
+        left: vw-md(510px);
+        width: vw-md(200px);
+      }
+    }
+
+    &-section-2 {
+      .section-circle {
+        margin-top: -#{vw-md(145px)};
+        margin-left: -#{vw-md(75px)};
+
+        p {
+          width: vw-md(255px);
+          text-align: left;
+        }
+      }
+
+      .main-section-desc {
+        position: absolute;
+        top: 0;
+        right: vw-md(110px);
+      }
+    }
+
+    &-section-3 {
+      padding-top: vw-md(180px);
+
+      .title {
+        width: vw-md(1100px);
+
+        .sm-hidden {
+          display: inline-block;
+          width: vw-md(170px);
+        }
+      }
+
+      .sub {
+        top: vw-md(134px);
+        left: vw-md(50px);
+        right: auto;
+        width: vw-md(120px);
+      }
+    }
+
+    &-section-4 {
+      padding-bottom: vw-md(100px);
+
+      .title {
+        width: vw-md(1050px);
+
+        span {
+          width: vw-md(70px);
+        }
+
+        span:nth-child(1) {
+          width: vw-md(200px);
+        }
+      }
+
+      .sub {
+        top: vw-md(240px);
+        right: vw-md(100px);
+        width: vw-md(225px);
+      }
+
+      .section-circle {
+        margin-left: -#{vw-md(100px)};
+        p {
+          width: vw-md(340px);
+        }
+      }
+
+      .section-card {
+        padding: 0 0 vw-md(50px);
+        margin-top: -#{vw-md(150px)};
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-section-1 {
+      padding-top: 15vh;
+    }
+  }
+}

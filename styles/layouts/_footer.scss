@@ -1,0 +1,188 @@
+.footer {
+  padding: calc($margin-sm / 2) $margin-sm;
+
+  .btn-shop {
+    display: inline-block;
+    margin-top: vw-sm(60px);
+    font-family: $font-bold;
+    font-size: vw-sm(100px);
+    line-height: vw-sm(74px);
+    color: $font-color;
+    letter-spacing: -0.063em;
+
+    i {
+      display: inline-block;
+      width: vw-sm(40px);
+
+      svg {
+        stroke: $border-color;
+        stroke-width: 4px;
+      }
+    }
+  }
+
+  .fnb {
+    @include flexbox(start);
+    flex-wrap: wrap;
+    gap: vw-sm(50px) 0;
+    margin-top: vw-sm(60px);
+
+    ul {
+      width: 50%;
+
+      li {
+        margin-top: vw-sm(20px);
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        a {
+          display: inline-block;
+          font-size: vw-sm(34px);
+          color: $font-color;
+
+          &::after {
+            display: block;
+            width: 0;
+            height: 1px;
+            content: '';
+            background-color: $font-color;
+          }
+
+          &:active::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    margin-top: vw-sm(100px);
+
+    .txt {
+      font-size: vw-sm(34px);
+      color: $font-color;
+    }
+
+    .number {
+      width: 100%;
+      margin-top: vw-sm(20px);
+      font-family: $font-bold;
+      font-size: vw-sm(64px);
+      line-height: vw-sm(130px);
+      color: $font-color;
+      text-align: center;
+      border: 2px solid $border-color;
+      border-radius: vw-sm(10px);
+    }
+  }
+
+  .info {
+    @include flexbox(between);
+    margin-top: 80px;
+
+    .logo {
+      width: 150px;
+
+      svg {
+        fill: $font-color;
+      }
+    }
+
+    .copyright {
+      font-size: 16px;
+      color: $font-color;
+    }
+  }
+
+  @include responsive(T) {
+    padding: calc(vw-md($margin-md) / 2) vw-md($margin-md);
+
+    .btn-shop {
+      margin-top: vw-md(240px);
+      font-size: vw-md(180px);
+      line-height: vw-md(134px);
+
+      i {
+        width: vw-md(120px);
+
+        svg {
+          stroke-width: 2px;
+        }
+      }
+    }
+
+    &-content {
+      @include flexbox(between);
+      margin-top: vw-md(200px);
+    }
+
+    .fnb {
+      flex-wrap: nowrap;
+      gap: 0 vw-md(95px);
+      margin: 0;
+
+      ul li {
+        margin-top: vw-md(8px);
+        font-size: 0;
+
+        a {
+          position: relative;
+          display: inline-block;
+          font-size: vw-md(14px);
+          line-height: vw-md(16px);
+
+          &::after {
+            display: block;
+            width: 100%;
+            height: 1px;
+            content: '';
+            background-color: $font-color;
+            transition: transform 0.4s ease-in-out;
+            transform: scaleX(0);
+            transform-origin: 100% center;
+          }
+
+          &:hover::after {
+            transform: scaleX(1);
+            transform-origin: 0 center;
+          }
+        }
+      }
+    }
+
+    .contact {
+      margin: 0;
+
+      .txt {
+        font-size: vw-md(12px);
+      }
+
+      .number {
+        padding: 0 vw-md(20px);
+        margin-top: vw-md(8px);
+        font-size: vw-md(28px);
+        line-height: vw-md(42px);
+        letter-spacing: -0.03em;
+      }
+    }
+
+    .info {
+      @include column-flexbox(start, start);
+      gap: vw-md(10px) 0;
+      order: -2;
+      padding-right: vw-md(140px);
+      margin: 0;
+
+      .logo {
+        width: vw-md(150px);
+      }
+
+      .copyright {
+        font-size: vw-md(14px);
+      }
+    }
+  }
+}

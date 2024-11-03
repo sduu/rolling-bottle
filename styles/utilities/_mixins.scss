@@ -1,0 +1,132 @@
+/* flexbox */
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  stretch: stretch,
+  center: center,
+);
+
+@function _get-flex-value($key) {
+  @return map-get($flex-map, $key);
+}
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+@mixin column-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+/* pixel to vw */
+@function vw-sm($px-vw, $base-vw: $md-breakpoint - 1) {
+  @return calc(($px-vw * 100vw) / $base-vw);
+}
+@function vw-md($px-vw, $base-vw: $lg-breakpoint - 1) {
+  @return calc(($px-vw * 100vw) / $base-vw);
+}
+
+/* positions */
+@mixin pos-center-x($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin pos-center-y($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin pos-center($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* responsive */
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    /* 태블릿 */
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+
+  @if ($screen == 'D') {
+    /* 데스크탑 */
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-only() {
+  /* 모바일 */
+  @media screen and (max-width: $md-breakpoint - 1px) {
+    @content;
+  }
+}
+
+/* color theme */
+$font-color: var(--font-color);
+$hover-color: var(--hover-color);
+$border-color: var(--border-color);
+$card-color: var(--card-color);
+
+$config: (
+  dark: (
+    font: $black,
+    hover: $white,
+    border: $black,
+    card: $yellow,
+  ),
+  light: (
+    font: $white,
+    hover: $black,
+    border: $white,
+    card: $white,
+  ),
+);
+
+@function setStyle($map, $object, $style) {
+  @if map-has-key($map, $object) {
+    @return map-get(map-get($map, $object), $style);
+  }
+  @warn "The key ´#{$object} is not available in the map.";
+  @return null;
+}
+
+@mixin theme($key) {
+  --font-color: #{setStyle($config, $key, font)};
+  --hover-color: #{setStyle($config, $key, hover)};
+  --border-color: #{setStyle($config, $key, border)};
+  --card-color: #{setStyle($config, $key, card)};
+}
+
+@each $theme in dark, light {
+  body.theme-#{$theme} {
+    @include theme($theme);
+  }
+}

@@ -1,0 +1,94 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-main;
+  font-size: 30px;
+  text-size-adjust: none;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $yellow;
+  background-image: linear-gradient(315deg, $orange 8.31%, $yellow 88.22%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dd,
+button,
+input,
+textarea,
+fieldset,
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+header,
+main,
+footer,
+section,
+article,
+nav,
+aside {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+address,
+em {
+  font-style: normal;
+}
+
+button,
+input,
+select,
+textarea,
+fieldset {
+  background-color: transparent;
+  border: 0;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast; /* stylelint-disable-line */
+}
+
+li {
+  list-style: none;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
