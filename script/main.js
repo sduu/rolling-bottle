@@ -207,12 +207,12 @@
     let frame;
     let resizeTimer;
 
-    sceneClip.src = './../assets/images/frame/A_00000_alpha.png';
+    sceneClip.src = '/assets/images/frame/A_00000_alpha.png';
 
     for (let i = 0; i <= sceneNum; i++) {
       let index = i + '';
       sceneEl = new Image();
-      sceneEl.src = `./../assets/images/frame/A_${index.padStart(5, '0')}.webp`;
+      sceneEl.src = `/assets/images/frame/A_${index.padStart(5, '0')}.webp`;
       sceneArray.push(sceneEl);
     }
 
