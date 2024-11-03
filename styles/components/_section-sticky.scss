@@ -14,21 +14,21 @@
 
     @at-root {
       #{$this}.is-step-0 .deco .deco-item {
-        background-image: url('./../../assets/images/img-main-deco-1.png');
+        background-image: url('./assets/images/img-main-deco-1.png');
       }
 
       #{$this}.is-step-1 .deco .deco-item {
-        background-image: url('./../../assets/images/img-main-deco-2.png');
+        background-image: url('./assets/images/img-main-deco-2.png');
       }
 
       #{$this}.is-step-2 .deco .deco-item {
-        background-image: url('./../../assets/images/img-main-deco-3.png');
+        background-image: url('./assets/images/img-main-deco-3.png');
       }
     }
 
     .deco-item {
       position: absolute;
-      background: url('./../../assets/images/img-main-deco-1.png') no-repeat 0 0;
+      background: url('./assets/images/img-main-deco-1.png') no-repeat 0 0;
       background-size: 100% auto;
 
       &:nth-child(1) {
