@@ -1,3 +1,6 @@
+@use './constants' as const;
+@use 'sass:map';
+
 /* flexbox */
 $flex-map: (
   start: flex-start,
@@ -9,7 +12,7 @@ $flex-map: (
 );
 
 @function _get-flex-value($key) {
-  @return map-get($flex-map, $key);
+  @return map.get($flex-map, $key);
 }
 
 @mixin flexbox($jc: center, $ai: center) {
@@ -32,10 +35,10 @@ $flex-map: (
 }
 
 /* pixel to vw */
-@function vw-sm($px-vw, $base-vw: $md-breakpoint - 1) {
+@function vw-sm($px-vw, $base-vw: const.$md-breakpoint - 1) {
   @return calc(($px-vw * 100vw) / $base-vw);
 }
-@function vw-md($px-vw, $base-vw: $lg-breakpoint - 1) {
+@function vw-md($px-vw, $base-vw: const.$lg-breakpoint - 1) {
   @return calc(($px-vw * 100vw) / $base-vw);
 }
 
@@ -69,14 +72,14 @@ $flex-map: (
 @mixin responsive($screen) {
   @if ($screen == 'T') {
     /* 태블릿 */
-    @media screen and (min-width: $md-breakpoint) {
+    @media screen and (min-width: const.$md-breakpoint) {
       @content;
     }
   }
 
   @if ($screen == 'D') {
     /* 데스크탑 */
-    @media screen and (min-width: $lg-breakpoint) {
+    @media screen and (min-width: const.$lg-breakpoint) {
       @content;
     }
   }
@@ -97,22 +100,22 @@ $card-color: var(--card-color);
 
 $config: (
   dark: (
-    font: $black,
-    hover: $white,
-    border: $black,
-    card: $primary,
+    font: const.$black,
+    hover: const.$white,
+    border: const.$black,
+    card: const.$primary,
   ),
   light: (
-    font: $white,
-    hover: $black,
-    border: $white,
-    card: $white,
+    font: const.$white,
+    hover: const.$black,
+    border: const.$white,
+    card: const.$white,
   ),
 );
 
 @function setStyle($map, $object, $style) {
-  @if map-has-key($map, $object) {
-    @return map-get(map-get($map, $object), $style);
+  @if map.has-key($map, $object) {
+    @return map.get(map.get($map, $object), $style);
   }
   @warn "The key ´#{$object} is not available in the map.";
   @return null;

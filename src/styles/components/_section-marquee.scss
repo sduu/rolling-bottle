@@ -1,0 +1,26 @@
+@use './../utilities/mixins' as mix;
+@use './../utilities/constants' as const;
+
+.section-marquee {
+  margin: 0 (-(const.$margin-sm));
+  overflow: hidden;
+
+  &-inner {
+    @include mix.flexbox(start);
+  }
+
+  p {
+    font-family: const.$font-bold;
+    font-size: 16px;
+    color: mix.$font-color;
+    white-space: nowrap;
+  }
+
+  @include mix.responsive(T) {
+    margin: 0 (-(mix.vw-md(const.$margin-md)));
+
+    p {
+      font-size: mix.vw-md(20px);
+    }
+  }
+}

@@ -1,9 +1,12 @@
+@use './../utilities/mixins' as mix;
+@use './../utilities/constants' as const;
+
 #cursor-content {
-  @include responsive(T) {
+  @include mix.responsive(T) {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: $cursor-level;
+    z-index: const.$cursor-level;
     width: 100%;
     height: 100vh;
     pointer-events: none;

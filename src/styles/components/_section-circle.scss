@@ -1,0 +1,35 @@
+@use './../utilities/mixins' as mix;
+@use './../utilities/constants' as const;
+
+.section-circle {
+  @include mix.flexbox;
+  width: mix.vw-sm(650px);
+  height: mix.vw-sm(650px);
+  margin: 0 auto;
+  border: 2px solid mix.$card-color;
+  border-radius: 100%;
+
+  p {
+    font-family: const.$font-bold;
+    font-size: mix.vw-sm(50px);
+    line-height: mix.vw-sm(48px);
+    color: mix.$font-color;
+
+    span {
+      display: inline-block;
+      width: mix.vw-sm(50px);
+    }
+  }
+
+  @include mix.responsive(T) {
+    width: mix.vw-md(600px);
+    height: mix.vw-md(600px);
+    margin: 0;
+    border-width: mix.vw-md(2px);
+
+    p {
+      font-size: mix.vw-md(70px);
+      line-height: mix.vw-md(68px);
+    }
+  }
+}

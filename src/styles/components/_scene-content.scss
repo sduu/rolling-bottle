@@ -1,9 +1,12 @@
+@use './../utilities/mixins' as mix;
+@use './../utilities/constants' as const;
+
 #scene-content {
-  @include responsive(T) {
+  @include mix.responsive(T) {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: $scene-level;
+    z-index: const.$scene-level;
     width: 100%;
     height: 100vh;
     pointer-events: none;
@@ -14,18 +17,18 @@
     }
 
     a {
-      @include flexbox;
+      @include mix.flexbox;
       position: absolute;
-      top: vw-md(25px);
-      right: vw-md(50px);
+      top: mix.vw-md(25px);
+      right: mix.vw-md(50px);
       z-index: 1;
-      width: vw-md(48px);
-      height: vw-md(48px);
-      font-size: vw-md(16px);
+      width: mix.vw-md(48px);
+      height: mix.vw-md(48px);
+      font-size: mix.vw-md(16px);
       font-weight: bold;
       pointer-events: fill;
-      background-color: $white;
-      border: 2px solid $black;
+      background-color: const.$white;
+      border: 2px solid const.$black;
       border-radius: 100%;
 
       &::after {
@@ -36,16 +39,16 @@
         width: 100%;
         height: 100%;
         content: '';
-        border: 2px solid $black;
+        border: 2px solid const.$black;
         border-radius: 100%;
         animation: visual-btn-bounce 1s ease-in-out 0.2s infinite;
       }
     }
 
     .scene-content-btn {
-      @include pos-center;
-      width: vw-md(400px);
-      height: vw-md(400px);
+      @include mix.pos-center;
+      width: mix.vw-md(400px);
+      height: mix.vw-md(400px);
     }
   }
 

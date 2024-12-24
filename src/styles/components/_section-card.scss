@@ -1,3 +1,6 @@
+@use './../utilities/mixins' as mix;
+@use './../utilities/constants' as const;
+
 .section-card {
   position: relative;
 
@@ -6,24 +9,24 @@
 
     h3 {
       font-size: 30px;
-      color: $font-color;
+      color: mix.$font-color;
     }
 
     p {
       font-size: 12px;
-      color: $font-color;
+      color: mix.$font-color;
     }
   }
 
   &-list {
-    @include column-flexbox;
+    @include mix.column-flexbox;
     gap: 80px 0;
     padding-top: 80px;
   }
 
   &-item {
-    width: vw-sm(420px);
-    border: 2px solid $card-color;
+    width: mix.vw-sm(420px);
+    border: 2px solid mix.$card-color;
     border-radius: 10px;
 
     &:nth-child(1) {
@@ -60,7 +63,7 @@
       }
 
       .star-item.is-half {
-        fill: url(#shape-star-half);
+        fill: url('#shape-star-half');
       }
 
       .star-item.is-empty {
@@ -71,14 +74,14 @@
     .txt {
       margin-top: 16px;
       font-size: 16px;
-      color: $font-color;
+      color: mix.$font-color;
     }
   }
 
   &-user {
-    @include flexbox(start);
+    @include mix.flexbox(start);
     padding: 5px 10px;
-    border-top: 2px solid $card-color;
+    border-top: 2px solid mix.$card-color;
 
     .icon {
       width: 30px;
@@ -87,40 +90,39 @@
     .name {
       margin-left: 4px;
       font-size: 12px;
-      color: $font-color;
+      color: mix.$font-color;
     }
   }
 
-  @include responsive(T) {
+  @include mix.responsive(T) {
     padding: 0;
 
     &-title {
       position: absolute;
-      top: -#{vw-md(210px)};
-      right: vw-md(160px);
+      top: -(mix.vw-md(210px));
+      right: mix.vw-md(160px);
 
       h3 {
-        font-size: vw-md(34px);
+        font-size: mix.vw-md(34px);
       }
 
       p {
-        margin-top: vw-md(20px);
-        font-size: vw-md(16px);
+        margin-top: mix.vw-md(20px);
+        font-size: mix.vw-md(16px);
       }
     }
 
     &-list {
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
-      gap: vw-md(80px) vw-md(450px);
-      padding-top: vw-md(80px);
+      flex-flow: row-reverse wrap;
+      gap: mix.vw-md(80px) mix.vw-md(450px);
+      padding-top: mix.vw-md(80px);
     }
 
     &-item {
-      width: vw-md(300px);
+      width: mix.vw-md(300px);
 
       &:nth-child(1) {
-        margin-left: vw-md(700px);
+        margin-left: mix.vw-md(700px);
         transform: rotate(-5deg);
       }
 
@@ -134,26 +136,26 @@
     }
 
     &-review {
-      height: vw-md(150px);
-      padding: vw-md(15px) vw-md(10px);
+      height: mix.vw-md(150px);
+      padding: mix.vw-md(15px) mix.vw-md(10px);
 
       .rating {
-        width: vw-md(100px);
-        padding-left: vw-md(4px);
+        width: mix.vw-md(100px);
+        padding-left: mix.vw-md(4px);
       }
 
       .txt {
-        margin-top: vw-md(8px);
-        font-size: vw-md(16px);
+        margin-top: mix.vw-md(8px);
+        font-size: mix.vw-md(16px);
       }
     }
 
     &-user {
-      padding: vw-md(10px);
+      padding: mix.vw-md(10px);
 
       .name {
         margin-left: wv-md(4px);
-        font-size: vw-md(12px);
+        font-size: mix.vw-md(12px);
       }
     }
   }
