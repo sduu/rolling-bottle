@@ -4,22 +4,40 @@
   "main": "index.js",
   "repository": "git@github.com:sduu/rolling-bottle.git",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"**/*.{js,scss,html}\"",
-    "lint:css": "stylelint \"styles/**/*.scss\"",
-    "sass": "sass -w --source-map --style expanded styles/main.scss style.css"
+    "format": "prettier --write --cache \"**/*.{js,scss,html}\"",
+    "lint:css": "stylelint \"src/styles/**/*.scss\"",
+    "sass": "sass -w --source-map --style expanded src/styles/main.scss dist/css/style.css",
+    "build": "gulp default",
+    "clean": "gulp claen"
   },
-  "dependencies": {
-    "eslint": "^9.14.0",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "del": "^8.0.0",
+    "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.3.3",
-    "stylelint": "^16.10.0",
+    "gulp": "^5.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-sass": "^6.0.0",
+    "gulp-strip-debug": "^6.0.0",
+    "gulp-uglify": "^3.0.2",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.0",
+    "sass-migrator": "^2.3.0",
+    "stylelint": "^16.12.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2",
-    "stylelint-scss": "^6.8.1"
+    "stylelint-scss": "^6.10.0",
+    "vinyl-buffer": "^1.0.1"
   }
 }

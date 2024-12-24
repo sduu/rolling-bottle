@@ -2,9 +2,13 @@
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "semi": true,
-  "endOfLine": "lf",
-  "printWidth": 200,
-  "bracketSpacing": false,
-  "arrowParens": "avoid"
+  "endOfLine": "auto",
+  "printWidth": 120,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "quoteProps": "as-needed",
+  "vueIndentScriptAndStyle": false
 }

@@ -117,7 +117,7 @@
     "scss/dollar-variable-pattern": "^.[a-z]+(-[a-z0-9])*",
     "scss/double-slash-comment-empty-line-before": "always",
     "scss/no-duplicate-mixins": true,
-    "scss/operator-no-unspaced": true,
+    "scss/operator-no-unspaced": null,
     "scss/percent-placeholder-pattern": "^.[a-z]+(-[a-z0-9])*"
   }
 }
