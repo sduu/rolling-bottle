@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
+import babelify from 'babelify';
 import GulpUglify from 'gulp-uglify';
 import gulpStripDebug from 'gulp-strip-debug';
 import GulpCleanCss from 'gulp-clean-css';
@@ -7,7 +8,9 @@ import minifyHtml from 'gulp-minify-html';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import imagemin from 'gulp-imagemin';
+import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
 import concat from 'gulp-concat';
 import { deleteAsync } from 'del';
 
@@ -45,11 +48,24 @@ task('create-js', async () => {
   console.log('src 경로 js 파일을 압축하여 dist 경로에 저장');
   const dirScript = 'dist/script';
 
-  await src(['src/script/*.js', 'src/script/**/*.jsx', '!src/script/libs/*.js'], { sourcemaps: true })
-    .pipe(gulpStripDebug())
-    .pipe(babel({ presets: ['@babel/preset-env'] }))
+  // await src(['src/script/*.js', 'src/script/**/*.jsx', '!src/script/libs/*.js'], { sourcemaps: true })
+  //   .pipe(gulpStripDebug())
+  //   .pipe(babel({ presets: ['@babel/preset-env'] }))
+  //   .pipe(GulpUglify())
+  //   .pipe(dest(dirScript));
+
+  await browserify(['src/script/main.js'])
+    .transform('babelify', {
+      presets: ['@babel/preset-env'],
+      sourceMaps: true,
+      global: true,
+      ignore: [/\/node_modules\/(?!your module folder\/)/],
+    })
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(buffer())
     .pipe(GulpUglify())
-    .pipe(dest(dirScript));
+    .pipe(gulp.dest('dist/script'));
 
   await src(['src/script/libs/*.js']).pipe(dest(dirScript + '/libs'));
 });
