@@ -1,3 +1,5 @@
+import { gsap, Back } from 'gsap';
+
 export const enterBtnShop = e => {
   gsap
     .timeline()

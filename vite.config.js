@@ -34,7 +34,7 @@ export default defineConfig({
     handlebars({
       partialDirectory: [path.resolve(__dirname, 'src/components')],
       context: {
-        siteTitle: 'Site',
+        siteTitle: 'ROLLING BOTTLE',
       },
     }),
     viteStaticCopy({

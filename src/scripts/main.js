@@ -4,20 +4,15 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 
-import { enterBtnShop, leaveBtnShop } from './components/buttonAnimations';
-import { animateLogo } from './components/logoAnimations';
-import { Marquee } from './components/marquee';
 import MouseCursor from './components/mouseCursor';
 import { initCanvas } from './components/rollingBottle';
 import { initScrollListener, getScrollTop } from './utils/scrollUtil';
+import { marquee } from './common.js';
 
 const scrollContent = document.querySelector('#scroll-content');
 const cursorContent = document.querySelector('#cursor-content');
 const canvasWrap = document.querySelector('#scene-content');
 const footer = document.querySelector('.footer');
-const footerShopIcon = document.querySelector('.footer .btn-shop i');
-const headerLogo = document.querySelector('.header .logo');
-const footerLogo = document.querySelector('.footer .logo');
 
 let isMobile, stickyStep, stickyNum, footerTop;
 
@@ -49,12 +44,6 @@ ScrollTrigger.matchMedia({
   '(min-width: 768px)': () => {
     isMobile = false;
   },
-});
-
-const marquee = new Marquee(document.querySelector('.section-marquee'), {
-  duration: 30,
-  repeat: -1,
-  ease: 'none',
 });
 
 const cursorManager = new MouseCursor('#cursor-content');
@@ -178,12 +167,7 @@ function animateFooter() {
 }
 
 /* 이벤트 초기화 */
-document.addEventListener('DOMContentLoaded', () => {});
 window.addEventListener('load', () => {
   initCanvas(getScrollTop, isMobile);
   footerTop = footer.offsetTop - window.innerHeight;
 });
-footerShopIcon.addEventListener('mouseenter', enterBtnShop);
-footerShopIcon.addEventListener('mouseleave', leaveBtnShop);
-headerLogo.addEventListener('mouseenter', animateLogo);
-footerLogo.addEventListener('mouseenter', animateLogo);
