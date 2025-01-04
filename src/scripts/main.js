@@ -1,3 +1,9 @@
+import '../styles/main.scss';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
+
 import { enterBtnShop, leaveBtnShop } from './components/buttonAnimations';
 import { animateLogo } from './components/logoAnimations';
 import { Marquee } from './components/marquee';
@@ -17,6 +23,7 @@ let isMobile, stickyStep, stickyNum, footerTop;
 
 const smoothScroll = initScrollListener(scrollContent, scrollTop => {
   ScrollTrigger.update();
+  footerTop = footer.offsetTop - window.innerHeight;
 
   cursorContent.style.top = `${scrollTop}px`;
   if (!isMobile) {
@@ -80,7 +87,7 @@ gsap
   .timeline({
     scrollTrigger: {
       trigger: '.section-sticky',
-      start: '0',
+      start: 'top left',
       end: `${stickyNum * 200}%`,
       pin: true,
       scrub: true,

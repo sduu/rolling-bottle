@@ -1,4 +1,4 @@
-export const animateLogo = (logoMain, logoSub) => {
+export const animateLogo = e => {
   const logoMain = e.target.querySelectorAll('.logo-main');
   const logoSub = e.target.querySelector('.logo-sub');
 

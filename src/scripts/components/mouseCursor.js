@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 export default class MouseCursor {
   constructor(cursorSelector) {
     this.cursorSelector = cursorSelector;

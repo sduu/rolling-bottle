@@ -14,15 +14,15 @@
     height: 100%;
 
     @at-root {
-      & .is-step-0 .deco .deco-item {
+      .section-sticky.is-step-0 .deco .deco-item {
         background-image: url('./../assets/images/img-main-deco-1.png');
       }
 
-      & .is-step-1 .deco .deco-item {
+      .section-sticky.is-step-1 .deco .deco-item {
         background-image: url('./../assets/images/img-main-deco-2.png');
       }
 
-      & .is-step-2 .deco .deco-item {
+      .section-sticky.is-step-2 .deco .deco-item {
         background-image: url('./../assets/images/img-main-deco-3.png');
       }
     }

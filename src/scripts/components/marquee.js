@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 export class Marquee {
   constructor(wrapper, options) {
     this.targets = wrapper.querySelectorAll('.section-marquee-inner');

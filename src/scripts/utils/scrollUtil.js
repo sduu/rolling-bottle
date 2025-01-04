@@ -1,4 +1,5 @@
-const ScrollbarPlugin = window.Scrollbar.ScrollbarPlugin;
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar';
+
 let scrollTop = 0;
 let bodyOffsetHeight;
 
@@ -14,7 +15,7 @@ export const initScrollListener = (scrollContent, callback) => {
   }
   Scrollbar.use(DisableScrollPlugin);
 
-  const smoothScroll = window.Scrollbar.init(scrollContent, {
+  const smoothScroll = Scrollbar.init(scrollContent, {
     thumbMinSize: 10,
     speed: 2,
     plugins: { disableScroll: { direction: 'x' } },

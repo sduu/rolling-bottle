@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 const canvasWrap = document.querySelector('#scene-content');
 const canvas = canvasWrap.querySelector('canvas');
 const footer = document.querySelector('.footer');
@@ -94,12 +96,11 @@ export const initCanvas = (getScrollTopFn, isMobile) => {
 
       footerTop = document.querySelector('.footer').offsetTop - window.innerHeight;
       const scrollTop = getScrollTopFn();
-      const posTop = scrollTop > footerTop - window.innerHeight ? footerTop : scrollTop;
+      const posTop = scrollTop > footerTop ? footerTop : scrollTop;
 
       canvas.width = canvasWrap.offsetWidth;
       canvas.height = canvasWrap.offsetHeight;
 
-      footerTop = document.querySelector('.footer').offsetTop - window.innerHeight;
       sceneSize = (580 / 1280) * canvas.offsetWidth;
 
       canvasWrap.style.top = posTop + 'px';
